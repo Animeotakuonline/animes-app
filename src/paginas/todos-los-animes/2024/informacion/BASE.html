@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información detallada sobre anime, incluyendo título, año, estado, géneros y sinopsis.">
+    <title>Información del Anime</title>
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/estilos-acordeon.css">
+    <link rel="stylesheet" href="../css/estilos-info.css">
+</head>
+<body class="bg-gray-100">
+    <header>
+        <div id="navbar-container"></div><!--barra de navegacion-->
+    </header>
+    <div id="anime-card-container"></div><!-- El contenido de la card se insertará aquí dinámicamente -->
+    <div class="proximo-episodio mt-10 ">
+      <h3 class="text-center">próximo episodio: día X de X del X</h3>
+    </div>
+    <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+    <div>
+      <br>
+    </div>
+    <script src="anime-data.js"></script>
+    <script src="load-anime-info.js"></script>
+    <script src="../capitulos/nombre.js" defer></script>
+    <script src="../../../../../dist/navbar/navbar-informacion.js"></script>
+    <script src="../../../../../dist/search.js"></script>
+    <script>
+        // Establecer el enfoque en el campo de búsqueda si está vacío al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+          const searchInput = document.getElementById('searchInput');
+          if (searchInput.value === '') {
+            searchInput.focus();
+          }
+        });
+      </script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => loadAnimeInfo("delicos-nursery"));//agrega el anime
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/estilos-acordeon.css" />
+    <link rel="stylesheet" href="../css/estilos-info.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div><!--barra de navegacion-->
+    <!-- Sección de la tarjeta de información -->
+    <div class="card">
+        <img class="anime-image" src="../../../img/2024/wangu-kuang-di.jpg" alt="name">
+        <div class="anime-info">
+            <h1 class="anime-title">Wangu Kuang Di</h1>
+            <p class="year">Año: 2024</p>
+            <p class="status">Estado: Finalizado</p>
+            <p class="genre">Géneros:  Artes Marciales, Historico, Fantasia, Aventura, Accion</p>
+            <p class="synopsis">Sinopsis: Chu Kuangsheng vive en una pequeña y remota ciudad del Imperio del Dragón Divino, llamada Ciudad Shiyang, y es el hijo del líder del clan Chu de Ciudad Shiyang. Nacido físicamente débil, no puede cultivarse. Sin embargo, tras un accidente, Chu Kuangsheng hereda las técnicas secretas de sus ancestros para remodelar sus meridianos. Desde entonces, el progreso de Chu Kuangsheng en su cultivación avanza rápidamente. Aunque aparenta ser débil e incapaz, posee otra identidad como el venerado Kuang Zun, cuyo nombre es bien conocido en el mundo de las artes marciales. Para descubrir la verdad detrás de la desaparición de sus padres, Chu Kuangsheng empuña su espada para cortar lazos pasados, luchando contra los héroes del cielo en una batalla contraria, ganándose una reputación en todo el universo. En miles de dominios, yo soy el soberano.</p>
+        </div>
+    </div>
+      <div class="proximo mt-10 ">
+        <h3 class="text-center ">próximo episodio: día X de X del X</h3>
+      </div>
+      <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+      <div>
+        <br>
+      </div>
+    <script src="../capitulos/wangu-kuang-di.js" defer></script>
+    <script src="../../../../../dist/navbar/nav-todos-los-animes.js"></script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <!-- Resto del contenido de la página -->
+</body>
+</html>

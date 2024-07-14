@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/estilos-acordeon.css" />
+    <link rel="stylesheet" href="../css/estilos-info.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div><!--barra de navegacion-->
+    <!-- Sección de la tarjeta de información -->
+    <div class="card">
+        <img class="anime-image" src="../../../img/2024/kaijuu-8-gou.jpg" alt="Kaijuu 8-gou">
+        <div class="anime-info">
+            <h1 class="anime-title">Kaijuu 8-gou</h1>
+            <p class="year">Año: 2023</p>
+            <p class="status">Estado: Emisión</p>
+            <p class="genre">Géneros: Acción, Ciencia Ficción, Fantasía</p>
+            <p class="synopsis">Sinopsis: Unos monstruos grotescos parecidos a Godzilla llamados "kaijuu" llevan muchos años apareciendo por Japón. Para combatir a estas bestias, una unidad militar de élite conocida como Cuerpo de Defensa arriesga su vida a diario para proteger a los civiles. Una vez que se mata a una criatura, los "barrenderos" -que trabajan bajo las órdenes de la Corporación Profesional de Limpieza de Kaijuu- se encargan de deshacerse de sus restos. Kafka Hibino, un hombre de 32 años, no está satisfecho con su trabajo de barrendero. Desde muy joven ha aspirado a unirse al Cuerpo de Defensa y ganarse la vida matando kaijuus. Sin embargo, tras varios intentos fallidos, renunció a sus sueños y se resignó a la mediocridad que le proporcionaba un sueldo decente. Sin embargo, cuando un ambicioso recluta de 18 años llamado Leno Ichikawa se une a su equipo de limpieza, Kafka vuelve a recordar su deseo de alistarse en el ejército. Tras una cadena de desafortunados acontecimientos y una interacción con el barrendero junior, Kafka se encuentra con un kaijuu de tipo parásito que se abre paso a través de su boca, convirtiéndolo en un monstruo humanoide. Con sus nuevos poderes, Kafka se propone dar una última oportunidad al sueño de su vida.</p>
+        </div>
+    </div>
+      <div class="proximo mt-10 ">
+        <h3 class="text-center ">Próximo episodio: 27 de abril de 2024</h3>
+      </div>
+      <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+      <div>
+        <br>
+      </div>
+    <script src="../capitulos/Kaijuu-8-gou.js" defer></script>
+    <script src="../../../../../dist/navbar/nav-todos-los-animes.js"></script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <!-- Resto del contenido de la página -->
+</body>
+</html>

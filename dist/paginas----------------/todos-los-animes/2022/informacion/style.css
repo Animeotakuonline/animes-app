@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evitar desplazamiento vertical */
+}
+
+.anime-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    width:97vw; /* Ancho del 100% de la ventana */
+    height: 80vh; /* Altura del 100% de la ventana */
+    max-width: 100%; /* Máximo ancho para mantener la proporción */
+    max-height: 100%; /* Máxima altura para mantener la proporción */
+    transition: transform 0.2s;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.anime-card:hover {
+    transform: scale(1.05);
+}
+
+.anime-image {
+    width: 20%; /* Ancho del 70% del contenedor */
+    height: 60%;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.anime-details {
+    padding: 20px;
+    text-align: left;
+    flex-grow: 1; /* La información ocupa todo el espacio disponible */
+}
+
+.anime-info {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.anime-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.anime-synopsis {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.chapter-cards {
+display: flex;
+flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea si no hay suficiente espacio */
+gap: 10px; /* Espacio entre las tarjetas */
+}
+
+.chapter-card {
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+padding: 10px;
+text-align: center;
+flex-grow: 1;
+}
+
+.chapter-title {
+font-size: 1.1em;
+color: #555;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/estilos-acordeon.css" />
+    <link rel="stylesheet" href="../css/estilos-info.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div><!--barra de navegacion-->
+    <!-- Sección de la tarjeta de información -->
+    <div class="card">
+        <img class="anime-image" src="../../../img/2024/maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-ii-part-2.jpg" alt="name">
+        <div class="anime-info">
+            <h1 class="anime-title">Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou II Part 2</h1>
+            <p class="year">Año: 2024</p>
+            <p class="status">Estado: En emisión</p>
+            <p class="genre">Géneros: Fantasia, Accion</p>
+            <p class="synopsis">Sinopsis: The Misfit of Demon King Academy II Part 2</p>
+        </div>
+    </div>
+      <div class="proximo mt-10 ">
+        <h3 class="text-center ">próximo episodio: día X de X del X</h3>
+      </div>
+      <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+      <div>
+        <br>
+      </div>
+    <script src="../capitulos/nombre.js" defer></script>
+    <script src="../../../../../dist/navbar/navbar-informacion.js"></script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <!-- Resto del contenido de la página -->
+</body>
+</html>

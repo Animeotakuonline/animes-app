@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/estilos-acordeon.css" />
+    <link rel="stylesheet" href="../css/estilos-info.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div><!--barra de navegacion-->
+    <!-- Sección de la tarjeta de información -->
+    <div class="card">
+        <img class="anime-image" src="../../../img/2024/the-new-gate.jpg" alt="name">
+        <div class="anime-info">
+            <h1 class="anime-title">The New Gate</h1>
+            <p class="year">Año: 2024</p>
+            <p class="status">Estado: En emisión</p>
+            <p class="genre">Géneros: <a href=""></a>Isekai, <a href="">Fantasia, </a><a href="">Aventura, </a><a href="">Accion</a></p>
+            <p class="type">Tipo: <a href="">Serie</a></p>
+            <p class="synopsis">Sinopsis: THE NEW GATE: un juego en línea transformado en una lucha de vida o muerte para sus jugadores. Gracias a los valientes esfuerzos de Shin, el más poderoso de todos, el fin del juego y la libertad para todos parecían estar al alcance. Pero momentos después de que Shin derrota al jefe final del juego, se encuentra bañado por una luz desconocida y transportado unos 500 años al futuro del mundo del juego. ¡Arrojado de un simple juego que salió mal a una tierra nueva y extraña, un joven espadachín de fuerza incomparable está a punto de embarcarse en un viaje legendario!</p>
+        </div>
+    </div>
+      <div class="proximo mt-10 ">
+        <h3 class="text-center ">próximo episodio: sabado 20 de abril del 2024</h3>
+      </div>
+      <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+      <div>
+        <br>
+      </div>
+    <script src="../capitulos/nombre.js" defer></script>
+    <script src="navbar-informacion.js"></script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <!-- Resto del contenido de la página -->
+</body>
+</html>

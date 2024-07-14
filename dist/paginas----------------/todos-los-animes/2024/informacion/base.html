@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Anime</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../css/informacion.css" rel="stylesheet">
+    <style>
+   
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evitar desplazamiento vertical */
+}
+
+.anime-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100vw; /* Ancho del 100% de la ventana */
+    max-width: 100%; /* Máximo ancho para mantener la proporción */
+    transition: transform 0.2s;
+}
+
+.anime-image {
+  width: 200px; /* Tamaño fijo para la imagen */
+    height: 300px; /* Altura fija para la imagen */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* Cambiar bordes para la esquina superior */
+}
+
+.anime-details {
+    padding: 20px;
+    text-align: center; /* Centrar texto */
+}
+
+.anime-info {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.anime-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.anime-synopsis {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.chapter-cards {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea si no hay suficiente espacio */
+    gap: 10px; /* Espacio entre las tarjetas */
+}
+
+.chapter-card {
+  background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.chapter-title {
+    font-size: 1.1em;
+    color: #555;
+}
+
+
+/* Media query para dispositivos móviles con un ancho máximo de 768px */
+@media only screen and (max-width: 768px) {
+    body{
+      overflow-y: auto;
+    }
+
+    .anime-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrar verticalmente */
+        align-items: center; /* Centrar horizontalmente */
+        background-color: #fff;
+        margin: 10px auto 50px; /* Margen hacia abajo de 10px */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+        overflow: hidden;
+        width: 100vw;
+        max-width: 100%;
+        transition: transform 0.2s;
+    }
+
+    .anime-image {
+        width: 30%; /* Ancho del 30% del contenedor */
+        height: auto; /* Altura automática para mantener la proporción */
+        border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+        margin: 20px auto 0; /* Ajustar el margen para centrar la imagen y agregar espacio en la parte superior */
+    }
+
+    .anime-details {
+        padding: 15px;
+    }
+
+    .anime-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .anime-info,
+    .anime-synopsis {
+        font-size: 14px;
+        margin: 12px 0;
+    }
+
+    .chapter-cards {
+        gap: 20px;
+    }
+
+    .chapter-card {
+        padding: 20px;
+        font-size: 1.1em;
+    }
+}
+
+
+ 
+    </style>
+</head>
+
+<body class="bg-gray-200">
+   <!-- Barra de navegación -->
+   <nav class="bg-gray-800 p-3">
+    <div
+      class="container mx-auto flex items-center justify-between flex-wrap"
+    >
+      <div>
+        <a href="#" class="text-white text-lg font-bold">ANIMES</a>
+      </div>
+
+      <!-- Botón para desplegar en pantallas pequeñas -->
+      <button
+        class="text-white inline-block p-2 hover:bg-gray-700 focus:outline-none md:hidden"
+        id="menuButton"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Lista desplegable para pantallas pequeñas -->
+      <div
+        class="hidden md:inline-block md:flex md:items-center md:w-auto"
+        id="navContent"
+      >
+        <!-- Lista desplegable 1 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../../index.html" class="block md:inline-block w-full md:w-auto">
+            <button id="dropdownButton1" class="text-white bg-blue-500 hover:bg-blue-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto">
+                <span>INICIO</span>
+            </button>
+        </a>
+        
+        </div>
+
+        <!-- Lista desplegable 2 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../vistos/vistos.html"><button
+            id="dropdownButton2"
+            class="text-white bg-yellow-500 hover:bg-yellow-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span class="text-sm">VISTOS</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 3 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../por-ver/por-ver.html"><button
+            id="dropdownButton3"
+            class="text-white bg-red-500 hover:bg-red-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR VER</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 4 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../estoy-viendo/estoy-viendo.html"><button
+            id="dropdownButton4"
+            class="text-white bg-green-500 hover:bg-green-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>ESTOY VIENDO</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 5 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../todos-los-animes/2024/1.html"><button
+            id="dropdownButton5"
+            class="text-white bg-pink-500 hover:bg-pink-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span class="underline">TODOS LOS ANIMES</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 6 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../por-genero/por-genero.html"><button
+            id="dropdownButton6"
+            class="text-white bg-purple-500 hover:bg-purple-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR GENERO</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 7 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="../../../por-tipo/por-tipo.html"><button
+            id="dropdownButton7"
+            class="text-white bg-purple-500 hover:bg-purple-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR TIPO</span>
+          </button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+    
+
+    <div id="animeContainer" class="anime-container" >
+        
+        <!-- El contenido se agregará dinámicamente aquí -->
+    </div>
+
+    <script>
+      var animes = [
+      {
+          imageSrc: "../../../img/2024/monsters-ippyaku-sanjou-hiryuu-jigoku.jpg",
+          año: "2024",
+          emision: "Fecha de emisión",
+          name: "Monsters Ippyaku Sanjou Hiryuu Jigoku",
+          estado: "Finalizado",
+          capitulos_disponibles: "Disponible 1 capitulo",
+          synopsis: "Ryuma no está solo en sus aventuras con la espada; Freya, una superviviente anterior de un importante ataque de un dragón, y Cyrano, un hábil espadachín, también están presentes en el viaje.",
+          chapters: ["Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 1","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 2","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 3","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 4","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 5","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 6","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 7","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 8","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 9","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 10","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 11","Monsters Ippyaku Sanjou Hiryuu Jigoku Capítulo 12"] // Lista de capítulos
+       
+      },
+          // ... tus datos de anime ...
+      ];
+
+      var animeContainer = document.getElementById("animeContainer");
+
+      animes.forEach(function (anime) {
+          var card = document.createElement("div");
+          card.className = "anime-card bg-white shadow-md rounded-md overflow-hidden flex";
+
+          var image = document.createElement("img");
+          image.src = anime.imageSrc;
+          image.alt = anime.name;
+          image.className = "w-48 h-64 object-cover ";
+
+          var details = document.createElement("div");
+          details.className = "anime-details p-4 flex flex-col justify-between";
+
+          var title = document.createElement("p");
+          title.className = "anime-title text-xl font-bold mb-2";
+          title.textContent = anime.name;
+          details.appendChild(title);
+
+          var infoElements = ["año", "emision", "estado", "capitulos_disponibles"];
+          infoElements.forEach(function (info) {
+              var paragraph = document.createElement("p");
+              paragraph.className = "anime-info text-gray-600";
+              paragraph.textContent = `${info.charAt(0).toUpperCase()}${info.slice(1)}: ${anime[info]}`;
+              details.appendChild(paragraph);
+          });
+
+          var synopsis = document.createElement("p");
+          synopsis.className = "anime-synopsis text-gray-800 mt-2";
+          synopsis.textContent = `Sinopsis: ${anime.synopsis}`;
+          details.appendChild(synopsis);
+
+          var chapters = document.createElement("div");
+          chapters.className = "anime-chapters mt-4";
+          chapters.innerHTML = `<div class="chapter-cards grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">${anime.chapters.map((chapter, index) => `
+              <a href="Monsters-Ippyaku-Sanjou-Hiryuu-Jigoku/${index + 1}.html" class="chapter-card bg-white p-2 rounded text-center">
+                  <p class="chapter-title text-sm">${chapter}</p>
+              </a>`).join('')}</div>`;
+          details.appendChild(chapters);
+
+          card.appendChild(image);
+          card.appendChild(details);
+          animeContainer.appendChild(card);
+      });
+  </script>
+    <script>
+        // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+        document.getElementById('menuButton').addEventListener('click', function () {
+            document.getElementById('navContent').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+<footer class="footer bg-gray-800 text-white py-4 px-8 flex flex-wrap justify-between">
+  <div class="copyright">
+    <p>&copy; <?php echo date("Y"); ?> My Awesome Website</p>
+  </div>
+  <nav class="social-links">
+    <a href="#" class="text-white hover:text-gray-400 mr-4">
+      facebook
+    </a>
+    <a href="#" class="text-white hover:text-gray-400 mr-4">
+      twitter
+    </a>
+    <a href="#" class="text-white hover:text-gray-400">
+      instagram
+    </a>
+  </nav>
+</footer>
+
+</html>

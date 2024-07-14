@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Anime</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="css/informacion.css">
+</head>
+
+<body class="bg-gray-200 font-sans">
+   <nav class="bg-gray-800 p-3">
+    <div
+      class="container mx-auto flex items-center justify-between flex-wrap"
+    >
+      <div>
+        <a href="#" class="text-white text-lg font-bold">ANIMES</a>
+      </div>
+
+      <!-- Botón para desplegar en pantallas pequeñas -->
+      <button
+        class="text-white inline-block p-2 hover:bg-gray-700 focus:outline-none md:hidden"
+        id="menuButton"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Lista desplegable para pantallas pequeñas -->
+      <div
+        class="hidden md:inline-block md:flex md:items-center md:w-auto"
+        id="navContent"
+      >
+        <!-- Lista desplegable 1 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href="#" class="block md:inline-block w-full md:w-auto">
+            <button id="dropdownButton1" class="text-white bg-blue-500 hover:bg-blue-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto">
+                <span>INICIO</span>
+            </button>
+        </a>
+        
+        </div>
+
+        <!-- Lista desplegable 2 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton2"
+            class="text-white bg-yellow-500 hover:bg-yellow-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span class="text-sm">VISTOS</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 3 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton3"
+            class="text-white bg-red-500 hover:bg-red-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR VER</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 4 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton4"
+            class="text-white bg-green-500 hover:bg-green-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>ESTOY VIENDO</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 5 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton5"
+            class="text-white bg-pink-500 hover:bg-pink-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span class="underline">TODOS LOS ANIMES</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 6 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton6"
+            class="text-white bg-purple-500 hover:bg-purple-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR GENERO</span>
+          </button></a>
+        </div>
+
+        <!-- Lista desplegable 7 -->
+        <div class="relative inline-block text-left md:ml-4 w-full md:w-auto">
+          <a href=""><button
+            id="dropdownButton7"
+            class="text-white bg-purple-500 hover:bg-purple-600 hover:text-white hover:underline px-3 py-2 rounded w-full md:w-auto mt-1"
+          >
+            <span>POR TIPO</span>
+          </button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <div id="animeContainer" class="container mx-auto p-4">
+        <!-- El contenido se agregará dinámicamente aquí -->
+    </div>
+
+    <script>
+        var animes = [
+        {
+            imageSrc: "../../img/2024/monsters-ippyaku-sanjou-hiryuu-jigoku.jpg",
+            año: "2024",
+            emision: "Fecha de emisión",
+            name: "Monsters Ippyaku Sanjou Hiryuu Jigoku",
+            estado: "Finalizado",
+            capitulos_disponibles: "Disponible 1 capitulo",
+            synopsis: "Ryuma no está solo en sus aventuras con la espada; Freya, una superviviente anterior de un importante ataque de un dragón, y Cyrano, un hábil espadachín, también están presentes en el viaje.",
+            chapters: ["Capítulo 1","Capítulo 1","Capítulo 1","Capítulo 1","Capítulo 1","Capítulo 1"] // Lista de capítulos
+         
+        },
+            // ... tus datos de anime ...
+        ];
+
+        var animeContainer = document.getElementById("animeContainer");
+
+        animes.forEach(function (anime) {
+            var card = document.createElement("div");
+            card.className = "anime-card bg-white shadow-md rounded-md overflow-hidden flex";
+
+            var image = document.createElement("img");
+            image.src = anime.imageSrc;
+            image.alt = anime.name;
+            image.className = "w-48 h-64 object-cover ";
+
+            var details = document.createElement("div");
+            details.className = "anime-details p-4 flex flex-col justify-between";
+
+            var title = document.createElement("p");
+            title.className = "anime-title text-xl font-bold mb-2";
+            title.textContent = anime.name;
+            details.appendChild(title);
+
+            var infoElements = ["año", "emision", "estado", "capitulos_disponibles"];
+            infoElements.forEach(function (info) {
+                var paragraph = document.createElement("p");
+                paragraph.className = "anime-info text-gray-600";
+                paragraph.textContent = `${info.charAt(0).toUpperCase()}${info.slice(1)}: ${anime[info]}`;
+                details.appendChild(paragraph);
+            });
+
+            var synopsis = document.createElement("p");
+            synopsis.className = "anime-synopsis text-gray-800 mt-2";
+            synopsis.textContent = `Sinopsis: ${anime.synopsis}`;
+            details.appendChild(synopsis);
+
+            var chapters = document.createElement("div");
+            chapters.className = "anime-chapters mt-4";
+            chapters.innerHTML = `<div class="chapter-cards grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">${anime.chapters.map((chapter, index) => `
+                <a href="Monsters-Ippyaku-Sanjou-Hiryuu-Jigoku/${index + 1}.html" class="chapter-card bg-white p-2 rounded text-center">
+                    <p class="chapter-title text-sm">${chapter}</p>
+                </a>`).join('')}</div>`;
+            details.appendChild(chapters);
+
+            card.appendChild(image);
+            card.appendChild(details);
+            animeContainer.appendChild(card);
+        });
+    </script>
+    <script src="js/navegación.js"></script>
+
+</body>
+
+</html>

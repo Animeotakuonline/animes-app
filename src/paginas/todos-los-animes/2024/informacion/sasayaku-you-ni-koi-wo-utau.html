@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/estilos-acordeon.css" />
+    <link rel="stylesheet" href="../css/estilos-info.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div><!--barra de navegacion-->
+    <!-- Sección de la tarjeta de información -->
+    <div class="card">
+        <img class="anime-image" src="../../../img/2024/sasayaku-you-ni-koi-wo-utau.jpg" alt="Sasayaku You ni Koi wo Utau">
+        <div class="anime-info">
+            <h1 class="anime-title">Sasayaku You ni Koi wo Utau</h1>
+            <p class="year">Año: 2024</p>
+            <p class="status">Estado: Emisión</p>
+            <p class="genre">Géneros: Drama, Romance, Escolar</p>
+            <p class="synopsis">Sinopsis: Yori Asanagi es una chica madura en muchos aspectos, pero sigue siendo pura cuando se trata de romances. Este sentimiento queda demostrado cuando una estudiante de primer año, Himari Kino, le confiesa de repente su amor después de la actuación de su banda en la ceremonia de inauguración. Confundida y sorprendida, Yori pide consulta a sus amigas, pero éstas se burlan de ella diciéndole que está experimentando el amor. Yori no tarda en decidirse e intenta corresponder a los sentimientos de Himari, pero en un giro de los acontecimientos, se da cuenta de que lo que Himari amaba no era a ella, ¡sino su música! Mientras Yori sigue persiguiendo su amor por Himari, promete hacer que Himari se enamore de ella. Sin embargo, ¿florecerá este apasionado amor o seguirá sin ser correspondido?</p>
+        </div>
+    </div>
+      <div class="proximo mt-10 ">
+        <h3 class="text-center ">Próximo episodio:</h3>
+      </div>
+      <div id="cardsContainer" class="container mx-auto flex flex-wrap"></div>
+      <div>
+        <br>
+      </div>
+    <script src="../capitulos/Sasayaku-You-ni-Koi-wo-Utau.js" defer></script>
+    <script src="../../../../../dist/navbar/nav-todos-los-animes.js"></script>
+    <script>
+      // Añade funcionalidad para mostrar/ocultar menú en pantallas pequeñas
+      document.getElementById('menuButton').addEventListener('click', function () {
+          document.getElementById('navContent').classList.toggle('hidden');
+      });
+  </script>
+    <!-- Resto del contenido de la página -->
+</body>
+</html>
